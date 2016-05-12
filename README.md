@@ -1,6 +1,19 @@
-			Warren J. Jasper
-			wjasper@tx.ncsu.edu
-			February 2, 2016
+## Measurement Computing Drivers for Linux
+
+This repository was created to add features to simplify installation and usage.
+It probably will not work as long as this message exists.
+
+### Original Download Source
+
+ftp://lx10.tx.ncsu.edu/pub/Linux/drivers/USB/
+
+### Original Author
+
+Warren J. Jasper
+wjasper@tx.ncsu.edu
+February 2, 2016
+
+### Installation
 
 This file will hopefully guide you on using the mcc-libusb package that will
 interface to the Measurement Computing data acquisition devices.  This package uses
@@ -20,7 +33,7 @@ Special Notes on compiling the libusb version.
 
 1. You must have installed the following packages
       libusb-1.0
-      libusb-1.0-devel  or libusbx-devel-1.0 (Fedora) 
+      libusb-1.0-devel  or libusbx-devel-1.0 (Fedora)
       hidapi and related packages (See their README)
 
    For example, on Fedora Core 8, they would be
@@ -35,9 +48,9 @@ Special Notes on compiling the libusb version.
 
   Then you need to get hidapi from http://www.signal11.us/oss/hidapi/
   The easiest way to get this if you have git is:
-  
+
       git clone git://github.com/signal11/hidapi.git
-   
+
    and following the directions to install hidapi for your system (Linux/Windows/Mac)
     For Unbuntu:
 
@@ -48,19 +61,17 @@ Special Notes on compiling the libusb version.
     make
     sudo make install
 
-
   For Fedora 22 and later, the following may work:
       dnf install hidapi hidapi-devel
 
-
 3. Get the file 61-mcc.rules (or 60-mcc.rules for Linux 2.6) from ftp://lx10.tx.ncsu.edu/pub/Linux/drivers
    cp 61-mcc.rules /etc/udev/rules.d
-   /sbin/udevcontrol --reload_rules 
+   /sbin/udevcontrol --reload_rules
              or
    /sbin/udevadm control --reload-rules
              or
    /sbin/udevadm control --reload
-             or 
+             or
          ... (udev changes a lot so see the man page for the incantation de jour)
 
   Note: on the Raspberry Pi and some versions of Debian, you may need to rename 61-mcc.rules to 99-mcc.rules, otherwise
@@ -74,17 +85,16 @@ Special Notes on compiling the libusb version.
    sudo make install
    sudo ldconfig
 
+### Notes
 
-Note:  These drivers have been tested under Fedora Core, Ubuntu, and on the Raspberry Pi (Raspian). 
-       It should work on any version of Linux.  If they don't drop me a line.
+These drivers have been tested under Fedora Core, Ubuntu, and on the Raspberry Pi (Raspian).
+It should work on any version of Linux.  If they don't drop me a line.
 
-       There is also limited Python support.  Google Python MCC.  One source is:
-       https://pypi.python.org/pypi/mccdaq_linux
+There is also limited Python support.  Google Python MCC.  One source is:
+https://pypi.python.org/pypi/mccdaq_linux
 
 Good luck
 
 Warren Jasper PhD, PE
 North Carolina State University
 wjasper@tx.ncsu.edu
-
-
